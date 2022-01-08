@@ -28,8 +28,11 @@ module.exports = function parse(parsedQueryObject, node) {
 }
 
 function valueFormatting(value) {
-    if (typeof (value) == 'string') {
+    if (typeof (value) == 'string' && !value.startsWith("$")) {
         return `'${value}'`;
+    }
+    else if (typeof (value) == 'string' && value.startsWith("$")) {
+        return `${value.substr(1)}`;
     }
     return value;
 }

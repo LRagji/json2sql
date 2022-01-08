@@ -1,44 +1,35 @@
 {
     "queries": {
         "InnerJoin": {
-            "from": "TableA",
+            "from": "basket_a",
             "select": {
-                "columns": [
-                    "C1",
-                    "C2",
-                    "C3"
-                ],
-                "alias": [
-                    "A1",
-                    "A2",
-                    "A3"
-                ]
+                "columns": []
             },
             "join": {
-                "TableB": {
+                "basket_b": {
                     "alias": "TB",
                     "type": "inner",
-                    "precedence": "B1",
-                    "B1": {
+                    "precedence": "fruit_a",
+                    "fruit_a": {
                         "operator": "=",
-                        "value": "10"
+                        "value": "$fruit_b"
                     }
                 }
             }
         },
         "SelfJoin": {
-            "from": "TableA",
+            "from": "basket_a",
             "select": {
                 "columns": []
             },
             "join": {
-                "TableA": {
-                    "alias": "self",
-                    "type": "self",
-                    "precedence": "B1",
-                    "B1": {
+                "basket_a": {
+                    "alias": "Self",
+                    "type": "",
+                    "precedence": "basket_a.a",
+                    "basket_a.a": {
                         "operator": "=",
-                        "value": "10"
+                        "value": "$Self.a"
                     }
                 }
             }

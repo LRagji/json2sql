@@ -1,5 +1,5 @@
  
  -- InnerJoin 
- select C1 as 'A1',C2 as 'A2',C3 as 'A3' from TableA  inner join TableB as 'TB' on   B1 = '10'   
+ select * from basket_a  inner join basket_b as TB on   fruit_a = fruit_b   
  -- SelfJoin 
- select * from TableA  self join TableA as 'self' on   B1 = '10'  
+ select * from basket_a   join basket_a as Self on   basket_a.a = Self.a  
