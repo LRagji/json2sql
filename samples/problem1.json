@@ -1,0 +1,61 @@
+{
+    "queries": {
+        "Math Operators": {
+            "from": "TableA",
+            "select": {
+                "columns": []
+            },
+            "where": {
+                "precedence": "C1 $and C2 $or C3 $and C4",
+                "C1": {
+                    "operator": ">",
+                    "value": 10
+                },
+                "C2": {
+                    "operator": "<",
+                    "value": 20
+                },
+                "C3": {
+                    "operator": "=",
+                    "value": 100
+                },
+                "C4": {
+                    "operator": "!=",
+                    "value": 200
+                }
+            },
+            "order": [
+                "$asc(C1)",
+                "$desc(C2)"
+            ]
+        },
+        "String Operators": {
+            "from": "TableB",
+            "select": {
+                "columns": [
+                    "EmpName",
+                    "$sum(Salary)"
+                ],
+                "alias": [
+                    "Name",
+                    "Total Salary"
+                ]
+            },
+            "where": {
+                "precedence": "EmpName $or Area",
+                "EmpName": {
+                    "operator": "Like",
+                    "value": "%ABC"
+                },
+                "Area": {
+                    "operator": "IN",
+                    "value": [
+                        "Mumbai",
+                        "Delhi",
+                        "Banglore"
+                    ]
+                }
+            }
+        }
+    }
+}
