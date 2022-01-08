@@ -33,6 +33,25 @@
                     }
                 }
             }
+        },
+        "Child": {
+            "from": "basket_a",
+            "select": {
+                "columns": []
+            }
+        },
+        "Parent": {
+            "from": "$Child",
+            "select": {
+                "columns": []
+            },
+            "where": {
+                "precedence": "a",
+                "a": {
+                    "operator": ">",
+                    "value": 0
+                }
+            }
         }
     }
 }
