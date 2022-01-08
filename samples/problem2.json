@@ -21,35 +21,26 @@
                     "precedence": "B1",
                     "B1": {
                         "operator": "=",
-                        "value": "A"
-                    },
-                    "Y": {
-                        "operator": ">",
-                        "value": 5
+                        "value": "10"
                     }
                 }
-            },
-            "group": [
-                "X"
-            ],
-            "order": [
-                "$asc(X)",
-                "$desc(Y)"
-            ]
+            }
         },
-        "innerQ": {
-            "alias": "outerQ",
+        "SelfJoin": {
+            "from": "TableA",
             "select": {
-                "columns": [
-                    "col1",
-                    "col2",
-                    "$sum(col3)"
-                ],
-                "alias": [
-                    "X",
-                    "Y",
-                    "Sum"
-                ]
+                "columns": []
+            },
+            "join": {
+                "TableA": {
+                    "alias": "self",
+                    "type": "self",
+                    "precedence": "B1",
+                    "B1": {
+                        "operator": "=",
+                        "value": "10"
+                    }
+                }
             }
         }
     }

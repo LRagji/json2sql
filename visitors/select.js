@@ -8,7 +8,7 @@ module.exports = function parse(parsedQueryObject, node) {
     }
     else {
         const columns = node.columns.map(operatorReplace);
-        const columnsWithAlias = columns.map((c, idx) => `${c} as ${node.alias[idx]}`);
+        const columnsWithAlias = columns.map((c, idx) => `${c} as '${node.alias[idx]}'`);
         parsedQueryObject.sql += `select ${columnsWithAlias.join(",")} `;
         return parsedQueryObject;
     }
