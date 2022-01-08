@@ -1,0 +1,56 @@
+{
+    "queries": {
+        "InnerJoin": {
+            "from": "TableA",
+            "select": {
+                "columns": [
+                    "C1",
+                    "C2",
+                    "C3"
+                ],
+                "alias": [
+                    "A1",
+                    "A2",
+                    "A3"
+                ]
+            },
+            "join": {
+                "TableB": {
+                    "alias": "TB",
+                    "type": "inner",
+                    "precedence": "B1",
+                    "B1": {
+                        "operator": "=",
+                        "value": "A"
+                    },
+                    "Y": {
+                        "operator": ">",
+                        "value": 5
+                    }
+                }
+            },
+            "group": [
+                "X"
+            ],
+            "order": [
+                "$asc(X)",
+                "$desc(Y)"
+            ]
+        },
+        "innerQ": {
+            "alias": "outerQ",
+            "select": {
+                "columns": [
+                    "col1",
+                    "col2",
+                    "$sum(col3)"
+                ],
+                "alias": [
+                    "X",
+                    "Y",
+                    "Sum"
+                ]
+            }
+        }
+    }
+}
